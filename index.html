@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CHANGE #4: real title + description (shows in browser tab and when shared) -->
+    <title>Priyavrata | ECE ePortfolio</title>
+    <meta
+      name="description"
+      content="ePortfolio of Priyavrata, a first-year Computer Engineering student at Georgia Tech."
+    />
+    <meta property="og:title" content="Priyavrata | ECE ePortfolio" />
+    <meta property="og:description" content="Projects, resume, and career goals." />
+    <meta name="theme-color" content="#0a0d14" />
+
+    <!-- CHANGE #4: fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CHANGE #4: applies saved/system dark mode BEFORE the page paints,
+         so there's no white flash on load -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          var dark = t
+            ? t === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (dark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

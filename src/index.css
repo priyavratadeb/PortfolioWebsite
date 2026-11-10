@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/* CHANGE #3: makes Tailwind's `dark:` classes follow the .dark class that the
+   theme toggle sets (v4 defaults to the OS setting only). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Fonts: Libre Baskerville (body) + EB Garamond (headings) */
+  --font-sans: "Libre Baskerville", Georgia, serif;
+  --font-display: "EB Garamond", Georgia, serif;
+
+  --color-border: hsl(var(--border));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-card: hsl(var(--card));
+
+  /* CHANGE #3: these colors were used by components but never defined,
+     so classes like text-muted-foreground and bg-secondary did nothing. */
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --animate-fade-in: fade-in 0.45s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.45s ease-out 0.06s forwards;
+  --animate-fade-in-delay-2: fade-in 0.45s ease-out 0.12s forwards;
+  --animate-fade-in-delay-3: fade-in 0.45s ease-out 0.18s forwards;
+  --animate-fade-in-delay-4: fade-in 0.45s ease-out 0.24s forwards;
+  --animate-scroll-bounce: scroll-bounce 1.8s ease-in-out infinite;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scroll-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 7%;
+    --card: 0 0% 100%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --border: 214 20% 88%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 222 47% 7%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 38%;
+    --input: 214 20% 80%;
+    --ring: 221 83% 53%;
+  }
+
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 0 0% 96%;
+    --card: 222 47% 8%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 8%;
+    --border: 217 15% 22%;
+    --secondary: 217 15% 16%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 217 15% 16%;
+    --muted-foreground: 215 16% 70%;
+    --input: 217 15% 28%;
+    --ring: 217 91% 60%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-200 font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  /* CHANGE #3: stops the sticky navbar from covering section headings
+     when you click a menu link */
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
+  /* CHANGE #3: visible keyboard focus for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media (width >= 640px) {
+    max-width: 640px;
+  }
+  @media (width >= 768px) {
+    max-width: 768px;
+  }
+  @media (width >= 1024px) {
+    max-width: 1024px;
+  }
+  @media (width >= 1280px) {
+    max-width: 1280px;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+@utility text-glow {
+  @apply relative;
+  text-shadow: 0 0 10px rgba(37, 99, 235, 0.25);
+}
+
+/* CHANGE #3: was used in HeroSection but never defined */
+@utility text-gradient {
+  @apply bg-linear-to-r from-primary to-blue-400 bg-clip-text text-transparent;
+}
+
+@utility card-hover {
+  @apply transition-transform duration-200 hover:scale-[1.01] hover:shadow-md;
+}
+
+@utility gradient-border {
+  @apply relative rounded-md;
+  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+  background-clip: padding-box;
+  border: 1px solid hsl(var(--border));
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+         transition-shadow duration-200 hover:shadow-[0_0_10px_rgba(37,99,235,0.25)];
+}
+
+/* CHANGE #3: secondary (outline) button style, reused in several sections */
+@utility outline-button {
+  @apply px-6 py-2 rounded-full border border-primary text-primary font-medium
+         transition-colors duration-300 hover:bg-primary/10;
+}
+
+@utility star {
+  @apply absolute rounded-full bg-white;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* CHANGE #3: respect "reduce motion" accessibility setting.
+   (Animations end instantly so the fade-in text still becomes visible.) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* CHANGE #3: removed `text-align: center` from #root. It centered EVERY
+   paragraph on the site, which is hard to read for long text. Headings are
+   centered individually instead. */
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
