@@ -1,27 +1,75 @@
-# ECE ePortfolio
+# Priyavrata Deb | Portfolio
 
-React + Vite + Tailwind single-page portfolio. See `CHANGES.md` for everything
-modified from the tutorial template.
+Personal portfolio website for my Electrical & Computer Engineering studies at Georgia Tech. It includes my bio, resume, career goals, skills, and project work, including my Discovery Project.
 
-## 1. Personalize it (only edit these)
-1. `src/data/content.js`: replace every `[bracketed placeholder]` with your own text and update your LinkedIn/GitHub URLs.
-2. `public/resume.pdf`: your 1-page ECE Career Fair resume.
-3. `public/images/`: `headshot.jpg`, `discovery-1.jpg`, `discovery-2.jpg`, `discovery-3.jpg`, `project-1.jpg` (same file names, or change the paths in `content.js`). At least one Discovery photo must be taken by YOU.
-4. `index.html`: replace `[Your Name]` in the title and description.
+**Live site:** [https://YOUR-USERNAME.github.io/REPO-NAME/]
 
-## 2. Run it
+## Sections
+
+- **Welcome:** a short introduction
+- **About:** my story and strengths
+- **Resume:** education and experience, with a downloadable PDF
+- **Career Goals:** my roadmap from now to my long-term goal
+- **Skills:** grouped by category
+- **Projects:** my Discovery Project feature and other work
+- **Contact:** email and social links
+
+## Built with
+
+- [React](https://react.dev/) and [Vite](https://vite.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide](https://lucide.dev/) icons
+- Hosted on GitHub Pages
+
+## Run it locally
+
+You need [Node.js](https://nodejs.org/) version 20 or newer.
+
 ```bash
 npm install
-npm run dev      # live preview at the URL it prints
-npm run check    # are you meeting the assignment requirements?
-npm run build    # production build into /dist
+npm run dev
 ```
 
-## 3. Publish (GitHub Pages)
-1. Create a GitHub repo and push this project to the `main` branch.
-2. Repo Settings > Pages > Source: GitHub Actions.
-3. Wait about a minute. Your link will be `https://YOUR-USERNAME.github.io/REPO-NAME/`.
-4. Open it in a private window and on your phone, and have a friend test it. Submit that link.
+Open the address it prints (usually `http://localhost:5173/`).
 
-## Adding a project later
-Copy the block in `projects` inside `content.js`, change the text, and add an image to `public/images/`.
+Other commands:
+
+| Command | What it does |
+|---|---|
+| `npm run build` | Creates the production site in `dist/` |
+| `npm run preview` | Previews the production build |
+| `npm run lint` | Checks the code for problems |
+| `npm run check` | Checks the word count, image count, resume file, and leftover placeholders |
+
+## Project structure
+
+```
+public/
+  resume.pdf          my resume
+  images/             photos and project images
+src/
+  data/content.js     all text, links, and image paths
+  components/         one file per section of the page
+  pages/Home.jsx      puts the sections in order
+  index.css           colors, fonts, and shared styles
+scripts/check.mjs     the requirements checker
+.github/workflows/    automatic deploy to GitHub Pages
+```
+
+## Editing the content
+
+Almost everything on the site comes from `src/data/content.js`. To update the site:
+
+1. Edit the text in `src/data/content.js`.
+2. Replace `public/resume.pdf` and add images to `public/images/`.
+3. Run `npm run dev` to preview and `npm run check` to verify.
+
+To add a project, copy an entry in the `projects` list in `content.js`, change its text, and add its image to `public/images/`.
+
+## Deploying
+
+Pushing to the `main` branch publishes the site automatically with GitHub Actions. One-time setup: in the repo, go to **Settings > Pages** and set **Source** to **GitHub Actions**.
+
+## Credits
+
+Started from [Beautiful React Tailwind Portfolio](https://youtu.be/ifOJ0R5UQOc?si=vL_saQfSQfcWirOJ) by Pedro Machado (PedroTech), then customized and extended for my ePortfolio assignment. All content, photos, and project work are my own unless credited otherwise.
