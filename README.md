@@ -2,7 +2,7 @@
 
 Personal portfolio website for my Electrical & Computer Engineering studies at Georgia Tech. It includes my bio, resume, career goals, skills, and project work, including my Discovery Project.
 
-**Live site:** [https://YOUR-USERNAME.github.io/REPO-NAME/]
+**Live site:** [https://priyavratadeb.github.io/PortfolioWebsite/]
 
 ## Sections
 

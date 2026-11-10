@@ -128,16 +128,16 @@ export const skills = [
 // Required component 5a: Discovery Project Feature
 export const discovery = {
   title: "[Discovery Project Title]",
-  subtitle: "[One sentence describing what you built and why it matters.]",
+  subtitle: "[Description]",
   inProgress: true, // set to false when it is finished (hides the badge)
   problem: [
-    "[The Problem - What problem or question did you explore? Who is affected? Why did you care about it?]",
+    "[The Problem]",
   ],
   process: [
-    "[The Process - How did you design and build it? Describe your ideas, parts and tools, tests, failures, and what you changed.]",
+    "[The Process]",
   ],
   outcome: [
-    "[The Outcome - What happened? Share results, measurements, and what you learned. What would you improve next time?]",
+    "[The Outcome]",
   ],
   
   images: [
