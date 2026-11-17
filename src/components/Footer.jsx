@@ -1,8 +1,6 @@
 import { ArrowUp } from "lucide-react";
 import { profile } from "@/data/content";
 
-// CHANGE #16: replaced "Pedrotech.co" with your name; added a label for the
-// back-to-top arrow (screen readers) and tidied spacing.
 const year = new Date().getFullYear();
 
 export const Footer = () => {

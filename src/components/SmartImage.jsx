@@ -2,11 +2,6 @@ import { useState } from "react";
 import { ImageOff } from "lucide-react";
 import { cn, asset } from "@/lib/utils";
 
-// CHANGE #17 (NEW FILE): one image component used everywhere.
-// - lazy loads (faster page load)
-// - always requires alt text (accessibility)
-// - shows a clear "add your image" box instead of a broken icon if the file
-//   is missing, so nothing looks broken while you're still adding photos.
 export const SmartImage = ({ src, alt, className, imgClassName }) => {
   const [failed, setFailed] = useState(false);
 

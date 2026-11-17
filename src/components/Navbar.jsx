@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "@/data/content";
 
-// CHANGE #6: menu now matches the required sections (Resume + Career Goals added)
 const navItems = [
   { name: "About", href: "#about" },
   { name: "Resume", href: "#resume" },
@@ -20,14 +19,12 @@ export const Navbar = () => {
   const [active, setActive] = useState("hero");
 
   useEffect(() => {
-    // CHANGE #6: was `window.screenY` (typo) so the navbar never changed on scroll
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // CHANGE #6: highlights the link for the section you're currently viewing
   useEffect(() => {
     const ids = ["hero", ...navItems.map((i) => i.href.slice(1))];
     const observer = new IntersectionObserver(
@@ -42,7 +39,6 @@ export const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  // CHANGE #6: close mobile menu with Escape and stop the page scrolling behind it
   useEffect(() => {
     if (!isMenuOpen) return;
     const onKey = (e) => e.key === "Escape" && setIsMenuOpen(false);
@@ -107,9 +103,7 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* CHANGE #6: the mobile menu used to sit INSIDE <nav>. Once the nav got
-          its blur effect on scroll, the menu was clipped to the nav's height.
-          Moving it outside the nav fixes that. Also fixed `backdroup-blur-md`. */}
+      {/* mobile menu overlay */}
       <div
         className={cn(
           "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",

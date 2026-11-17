@@ -9,9 +9,7 @@ import { ProjectsSection } from "../components/ProjectsSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 
-// CHANGE #20: page now follows the logical order the rubric asks for:
-// Welcome -> About -> Resume -> Career Goals -> Skills -> Projects -> Contact.
-// ThemeToggle moved into the Navbar (#7). Added a "skip to content" link.
+
 export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">

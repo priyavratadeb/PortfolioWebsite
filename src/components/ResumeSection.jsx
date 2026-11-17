@@ -2,8 +2,6 @@ import { Download, ExternalLink } from "lucide-react";
 import { resume, profile } from "@/data/content";
 import { asset } from "@/lib/utils";
 
-// CHANGE #11 (NEW FILE): Required component "Resume". Shows education and
-// experience right on the page AND gives View + Download buttons for the PDF.
 export const ResumeSection = () => {
   const pdf = asset(profile.resumeFile);
 

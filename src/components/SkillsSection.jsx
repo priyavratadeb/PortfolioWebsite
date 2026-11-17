@@ -1,9 +1,5 @@
 import { skills } from "@/data/content";
 
-// CHANGE #13: Replaced made-up percentage bars (which look odd and unprovable
-// on a student site) with skills grouped by category. Filter buttons removed:
-// everything is visible at once, which is easier for recruiters to scan.
-// Fixed typos `text-forefround` and `hover:bd-secondary` by removing that code.
 export const SkillsSection = () => {
   const categories = [...new Set(skills.map((s) => s.category))];
 

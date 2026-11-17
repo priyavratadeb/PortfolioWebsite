@@ -2,10 +2,6 @@ import { Moon, Sun } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-// CHANGE #7: - now lives inside the Navbar (it used to be hidden on phones)
-//            - starts from the saved choice OR the visitor's system setting
-//            - has an accessible label for screen readers
-//            - fixed `focus:outlin-hidden` typo
 export const ThemeToggle = ({ className }) => {
   const [isDarkMode, setIsDarkMode] = useState(() =>
     document.documentElement.classList.contains("dark")

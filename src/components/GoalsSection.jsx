@@ -1,8 +1,5 @@
 import { goals } from "@/data/content";
 
-// CHANGE #12 (NEW FILE): Required component "Career Goals". A step-by-step
-// timeline (this IS a real sequence) that answers "how do I get from here to
-// there?", which is exactly what the assignment asks for.
 export const GoalsSection = () => {
   return (
     <section id="goals" className="py-24 px-4 relative">

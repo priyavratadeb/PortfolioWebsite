@@ -27,9 +27,6 @@ export const StarBackground = () => {
   useEffect(() => {
     generateStars();
 
-    // CHANGE #8: only rebuild stars when the WIDTH changes. Phones fire
-    // `resize` whenever the address bar hides while scrolling, which made the
-    // stars jump and flicker.
     lastWidth.current = window.innerWidth;
     const handleResize = () => {
       if (window.innerWidth !== lastWidth.current) {
@@ -43,8 +40,6 @@ export const StarBackground = () => {
   }, []);
 
   return (
-    // CHANGE #8: aria-hidden so screen readers skip pure decoration.
-    // Stars are white, so they only show in dark mode (that's intended).
     <div
       aria-hidden="true"
       className="fixed inset-0 overflow-hidden pointer-events-none z-0 hidden dark:block"

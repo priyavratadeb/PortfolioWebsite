@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-/* CHANGE #3: makes Tailwind's `dark:` classes follow the .dark class that the
-   theme toggle sets (v4 defaults to the OS setting only). */
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
@@ -18,8 +17,6 @@
 
   --color-card: hsl(var(--card));
 
-  /* CHANGE #3: these colors were used by components but never defined,
-     so classes like text-muted-foreground and bg-secondary did nothing. */
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
@@ -107,13 +104,10 @@
     @apply font-display;
   }
 
-  /* CHANGE #3: stops the sticky navbar from covering section headings
-     when you click a menu link */
   section[id] {
     scroll-margin-top: 4.5rem;
   }
 
-  /* CHANGE #3: visible keyboard focus for accessibility */
   :focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 3px;
@@ -147,7 +141,6 @@
   text-shadow: 0 0 10px rgba(37, 99, 235, 0.25);
 }
 
-/* CHANGE #3: was used in HeroSection but never defined */
 @utility text-gradient {
   @apply bg-linear-to-r from-primary to-blue-400 bg-clip-text text-transparent;
 }
@@ -168,7 +161,6 @@
          transition-shadow duration-200 hover:shadow-[0_0_10px_rgba(37,99,235,0.25)];
 }
 
-/* CHANGE #3: secondary (outline) button style, reused in several sections */
 @utility outline-button {
   @apply px-6 py-2 rounded-full border border-primary text-primary font-medium
          transition-colors duration-300 hover:bg-primary/10;
@@ -179,8 +171,6 @@
   box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* CHANGE #3: respect "reduce motion" accessibility setting.
-   (Animations end instantly so the fade-in text still becomes visible.) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -193,9 +183,6 @@
   }
 }
 
-/* CHANGE #3: removed `text-align: center` from #root. It centered EVERY
-   paragraph on the site, which is hard to read for long text. Headings are
-   centered individually instead. */
 #root {
   max-width: 100%;
   margin: 0 auto;

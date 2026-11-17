@@ -2,10 +2,6 @@ import { ArrowDown } from "lucide-react";
 import { profile } from "@/data/content";
 import { SmartImage } from "./SmartImage";
 
-// CHANGE #9: Hero is now your required "Welcome / Summary" component.
-// Pulls name, headline, welcome statement and headshot from content.js.
-// Fixed `max-2-2xl` typo. Added a headshot (counts as one of your 5 visuals)
-// and a button to the resume. Scroll arrow is now a real link.
 export const HeroSection = () => {
   return (
     <section

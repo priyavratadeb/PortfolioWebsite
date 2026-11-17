@@ -2,13 +2,6 @@ import { ExternalLink, GitBranch } from "lucide-react";
 import { discovery, projects } from "@/data/content";
 import { SmartImage } from "./SmartImage";
 
-// CHANGE #14: Rebuilt. Now has
-//   (a) the Discovery Project Feature: Problem / Process / Outcome, a photo
-//       gallery, optional video and links (assignment requirement), and
-//   (b) a scalable "More projects" grid driven by the `projects` list in
-//       content.js - add an entry there and a new card appears.
-// Fixes: the tag <span> had no `key`; link icons only show if you gave a URL
-// (before they all pointed to "#"); removed Pedro's GitHub link.
 
 const Paragraphs = ({ items }) =>
   items.map((p, i) => (

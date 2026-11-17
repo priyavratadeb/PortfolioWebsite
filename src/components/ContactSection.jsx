@@ -1,11 +1,6 @@
 import { ExternalLink, Mail, MapPin } from "lucide-react";
 import { contact, profile } from "@/data/content";
 
-// CHANGE #15: Removed the fake contact form (it only showed a "Message sent!"
-// popup and delivered nothing - a recruiter's message would have vanished).
-// Also removed Pedro's fake phone/location and the dead "#" social links.
-// Now uses a real mailto link plus LinkedIn/GitHub from content.js.
-// Fixed the 3x `foucs:ring-2` typo by removing the form.
 export const ContactSection = () => {
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">

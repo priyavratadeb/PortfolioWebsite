@@ -175,7 +175,7 @@ export const projects = [
   {
     id: 3,
     title: "Herbivore Haven",
-    description: "Created a website for a vegan restaurant for the TSA State Leadership Conference, where it ended up placing 3rd in the state. I developed the reservation page using the Tally API.",
+    description: "Created a website for a vegan restaurant for the Technology Student Association State Leadership Conference, where it ended up placing 3rd in the state. I developed the reservation page using the Tally API.",
     image: "images/project-3.png",
     imageAlt: "[Describe the image]",
     tags: ["Git/GitHub", "JavaScript", "Teamwork"],
